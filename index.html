@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event List</title>
+</head>
+<body>
+    <h1>Upcoming Events</h1>
+
+    <!-- Filters -->
+    <label for="dateFilter">Filter by Date:</label>
+    <select id="dateFilter">
+        <option value="">All Dates</option>
+        <!-- JavaScript will populate these options -->
+    </select>
+
+    <label for="venueFilter">Filter by Venue:</label>
+    <select id="venueFilter">
+        <option value="">All Venues</option>
+        <!-- JavaScript will populate these options -->
+    </select>
+
+    <!-- Event Table -->
+    <div id="eventTable">
+        <table class="table table-bordered table-hover table-condensed">
+            <thead><tr><th title="Field #1">Event_Title</th>
+            <th title="Field #2">Date</th>
+            <th title="Field #3">Venue</th>
+            <th title="Field #4">Address</th>
+            <th title="Field #5">url</th>
+            <th title="Field #6">Time</th>
+            </tr></thead>
+            <tbody><tr>
+            <td>Hanabie (JPN) // Melbourne // 170 Russell 18+</td>
+            <td>12/11/2024</td>
+            <td>170 Russell</td>
+            <td>170 Russell St, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/468813589096049/</td>
+            <td>19:30</td>
+            </tr>
+            <tr>
+            <td>JP Cooper | Australian Tour 2024 | Melbourne 18+</td>
+            <td>17/11/2024</td>
+            <td>170 Russell</td>
+            <td>170 Russell St, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/1058873639178824/</td>
+            <td>19:00</td>
+            </tr>
+            <tr>
+            <td>Tora Live in Melbourne @ 170 Russell</td>
+            <td>29/11/2024</td>
+            <td>170 Russell</td>
+            <td>170 Russell St, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/549701127413257/</td>
+            <td>19:00</td>
+            </tr>
+            <tr>
+            <td>Patrick Topping | 170 Russell - Naarm/Melbourne</td>
+            <td>6/12/2024</td>
+            <td>170 Russell</td>
+            <td>170 Russell St, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/1444481526247205/</td>
+            <td>23:00</td>
+            </tr>
+            <tr>
+            <td>Soft Play | Melbourne</td>
+            <td>27/01/2025</td>
+            <td>170 Russell</td>
+            <td>170 Russell St, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/853786726543518/</td>
+            <td>19:00</td>
+            </tr>
+            <tr>
+            <td>10TH ANNIVERSARY OF &quot;RUDE&quot; MAGIC! AUSTRALIA TOUR | WEDNESDAY 29 JANUARY | 170 RUSSELL, MELBOURNE</td>
+            <td>29/01/2025</td>
+            <td>170 Russell</td>
+            <td>170 Russell St, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/1220043875653446/</td>
+            <td>19:30</td>
+            </tr>
+            <tr>
+            <td>Windwaker &#39;Hyperviolence&#39; Aus Tour – Melbourne</td>
+            <td>7/02/2025</td>
+            <td>170 Russell</td>
+            <td>170 Russell St, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/1054140219544876/</td>
+            <td>18:15</td>
+            </tr>
+            <tr>
+            <td>ANTS Melbourne 2025</td>
+            <td>14/02/2025</td>
+            <td>170 Russell</td>
+            <td>170 Russell St, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/944660744157449/</td>
+            <td>21:00</td>
+            </tr>
+            <tr>
+            <td>The Last Martyr - Requiem EP Launch Melbourne</td>
+            <td>8/11/2024</td>
+            <td>The Workers Club</td>
+            <td>51 Brunswick St, Fitzroy VIC 3065, Australia</td>
+            <td>https://www.facebook.com/events/1533395270933326/</td>
+            <td>20:00</td>
+            </tr>
+            <tr>
+            <td>Little Guilt &#39;Little Tour&#39; at The Worker&#39;s Club, Fitzroy</td>
+            <td>7/11/2024</td>
+            <td>The Workers Club</td>
+            <td>51 Brunswick St, Fitzroy VIC 3065, Australia</td>
+            <td>https://www.facebook.com/events/541529225082764/</td>
+            <td>13:27</td>
+            </tr>
+            <tr>
+            <td>Natasha Bianca “SHE” The Tour - The Workers Club</td>
+            <td>15/11/2024</td>
+            <td>The Workers Club</td>
+            <td>51 Brunswick St, Fitzroy VIC 3065, Australia</td>
+            <td>https://www.facebook.com/events/906330781371486/</td>
+            <td>20:30</td>
+            </tr>
+            <tr>
+            <td>4HR PARKING LIVE @ THE WORKER&#39;S CLUB</td>
+            <td>16/11/2024</td>
+            <td>The Workers Club</td>
+            <td>51 Brunswick St, Fitzroy VIC 3065, Australia</td>
+            <td>https://www.facebook.com/events/1943774509448092/</td>
+            <td>20:00</td>
+            </tr>
+            <tr>
+            <td>ALZZY ‘Losing It’ Single Launch</td>
+            <td>21/11/2024</td>
+            <td>The Workers Club</td>
+            <td>51 Brunswick St, Fitzroy VIC 3065, Australia</td>
+            <td>https://www.facebook.com/events/846505584226220/</td>
+            <td>19:00</td>
+            </tr>
+            <tr>
+            <td>Le Shiv - (un)adored EP tour, Melbourne</td>
+            <td>22/11/2024</td>
+            <td>The Workers Club</td>
+            <td>51 Brunswick St, Fitzroy VIC 3065, Australia</td>
+            <td>https://www.facebook.com/events/921911769817339/</td>
+            <td>19:00</td>
+            </tr>
+            <tr>
+            <td>OUTCAST BOOKINGS PRESENTS: DREAMWORM</td>
+            <td>23/11/2024</td>
+            <td>The Workers Club</td>
+            <td>51 Brunswick St, Fitzroy VIC 3065, Australia</td>
+            <td>https://www.facebook.com/events/1212462530035754/</td>
+            <td>19:00</td>
+            </tr>
+            <tr>
+            <td>Beers &amp; Tears Live: In The Moment</td>
+            <td>24/11/2024</td>
+            <td>The Workers Club</td>
+            <td>51 Brunswick St, Fitzroy VIC 3065, Australia</td>
+            <td>https://www.facebook.com/events/928097842469188/</td>
+            <td>13:00</td>
+            </tr>
+            <tr>
+            <td>Water Bugs of Merri Creek, Meg Kimber, and Demolition Jacket @ Last Chance Rock n Roll Bar</td>
+            <td>7/11/2024</td>
+            <td>The Last Chance</td>
+            <td>238 Victoria St, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/572724931861353/</td>
+            <td>19:30</td>
+            </tr>
+            <tr>
+            <td>GENERAL GOODS at Last Chance w/ W.O.M.B.A.T &amp; Keyo Roses Flying Circus</td>
+            <td>8/11/2024</td>
+            <td>The Last Chance</td>
+            <td>238 Victoria St, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/8790400301040916/</td>
+            <td>19:30</td>
+            </tr>
+            <tr>
+            <td>LAST CHANCE: DOLLS, MONGREL, PALA, KRISTOL PISSTOL &amp; TARNISHED</td>
+            <td>7/11/2024</td>
+            <td>The Last Chance</td>
+            <td>238 Victoria St, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/594045749615872/</td>
+            <td>13:27</td>
+            </tr>
+            <tr>
+            <td>Badass (USA) + Wot Rot + YNot + ADHD - Melbourne (Aus)</td>
+            <td>7/11/2024</td>
+            <td>The Last Chance</td>
+            <td>238 Victoria St, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/2625930787794756/</td>
+            <td>13:27</td>
+            </tr>
+            <tr>
+            <td>PATT TODD &amp; THE RANKOUTSIDERS (USA) @ THE LAST CHANCE</td>
+            <td>11/11/2024</td>
+            <td>The Last Chance</td>
+            <td>238 Victoria St, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/887050346700161/</td>
+            <td>19:00</td>
+            </tr>
+            <tr>
+            <td>Cold Regards, GRUPS, Abselom, Gold Coast Leathers @ Last Chance!</td>
+            <td>14/11/2024</td>
+            <td>The Last Chance</td>
+            <td>238 Victoria St, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/2262374820801546/</td>
+            <td>19:00</td>
+            </tr>
+            <tr>
+            <td>Disgruntled Civil Servant - “It Ain’t Easy Being Me” Album Launch @ The Last Chance</td>
+            <td>15/11/2024</td>
+            <td>The Last Chance</td>
+            <td>238 Victoria St, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/1507188243322245/</td>
+            <td>19:00</td>
+            </tr>
+            <tr>
+            <td>BLYSS. &#39;DEADSTOCK&#39; EP LAUNCH</td>
+            <td>16/11/2024</td>
+            <td>The Last Chance</td>
+            <td>238 Victoria St, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/1873803523114741/</td>
+            <td>20:30</td>
+            </tr>
+            <tr>
+            <td>The Golden Gaytimes and Party Pest at Gem Bar</td>
+            <td>22/11/2024</td>
+            <td>The Gem Bar and Dining</td>
+            <td>289 Wellington St, Collingwood VIC 3066, Australia</td>
+            <td>https://www.facebook.com/events/547490364549675/</td>
+            <td>20:00</td>
+            </tr>
+            <tr>
+            <td>Condensed Milk Tuesdays</td>
+            <td>12/11/2024</td>
+            <td>Section 8</td>
+            <td>27-29 Tattersalls Ln, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/3806429379629971/</td>
+            <td>18:00</td>
+            </tr>
+            <tr>
+            <td>Jamaican Sundays</td>
+            <td>7/11/2024</td>
+            <td>Section 8</td>
+            <td>27-29 Tattersalls Ln, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/1601924737053913/</td>
+            <td>13:27</td>
+            </tr>
+            <tr>
+            <td>PLAYAZ CLUB: LANEWAY HOOP SHOOTOUT</td>
+            <td>11/11/2024</td>
+            <td>Section 8</td>
+            <td>27-29 Tattersalls Ln, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/1804239166982408/</td>
+            <td>18:00</td>
+            </tr>
+            <tr>
+            <td>PLAYAZ CLUB: LANEWAY HOOP SHOOTOUT</td>
+            <td>11/11/2024</td>
+            <td>Section 8</td>
+            <td>27-29 Tattersalls Ln, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/1804239166982408/?event_time_id=1804239213649070</td>
+            <td>18:00</td>
+            </tr>
+            <tr>
+            <td>Condensed Milk Tuesdays</td>
+            <td>12/11/2024</td>
+            <td>Section 8</td>
+            <td>27-29 Tattersalls Ln, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/3806429379629971/?event_time_id=3806429416296634</td>
+            <td>18:00</td>
+            </tr>
+            <tr>
+            <td>PLAYAZ CLUB: LANEWAY HOOP SHOOTOUT</td>
+            <td>11/11/2024</td>
+            <td>Section 8</td>
+            <td>27-29 Tattersalls Ln, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/1804239166982408/?event_time_id=1804239206982404</td>
+            <td>18:00</td>
+            </tr>
+            <tr>
+            <td>Condensed Milk Tuesdays</td>
+            <td>12/11/2024</td>
+            <td>Section 8</td>
+            <td>27-29 Tattersalls Ln, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/3806429379629971/?event_time_id=3806429402963302</td>
+            <td>18:00</td>
+            </tr>
+            <tr>
+            <td>PLAYAZ CLUB: LANEWAY HOOP SHOOTOUT</td>
+            <td>11/11/2024</td>
+            <td>Section 8</td>
+            <td>27-29 Tattersalls Ln, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/1804239166982408/?event_time_id=1804239190315739</td>
+            <td>18:00</td>
+            </tr>
+            <tr>
+            <td>Third Saturday: Giving Thanks by Creating Elephant Enrichment</td>
+            <td>17/11/2024</td>
+            <td>The Elephant &amp; Wheelbarrow</td>
+            <td>94-96 Bourke St, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/1663803114165032/</td>
+            <td>4:00</td>
+            </tr>
+            <tr>
+            <td>Chimers (Album Launch) with special guests Bench Press + No Hoper</td>
+            <td>8/11/2024</td>
+            <td>The Old Bar</td>
+            <td>74-76 Johnston St, Fitzroy VIC 3065, Australia</td>
+            <td>https://www.facebook.com/events/1481665015844283/</td>
+            <td>19:30</td>
+            </tr>
+            <tr>
+            <td>Grand Baxter &#39;HOLY SIGNS&#39; Melbourne Single Launch w/ Alister Turrill at Old Bar</td>
+            <td>16/11/2024</td>
+            <td>The Old Bar</td>
+            <td>74-76 Johnston St, Fitzroy VIC 3065, Australia</td>
+            <td>https://www.facebook.com/events/543753991667612/</td>
+            <td>16:00</td>
+            </tr>
+            <tr>
+            <td>Girl and Girl Aus Spring Tour - The Old Bar w Square and Spürts</td>
+            <td>16/11/2024</td>
+            <td>The Old Bar</td>
+            <td>74-76 Johnston St, Fitzroy VIC 3065, Australia</td>
+            <td>https://www.facebook.com/events/1028967432343910/</td>
+            <td>19:00</td>
+            </tr>
+            <tr>
+            <td>ROLES - EP LAUNCH with GREAT AUSTRALIAN BANK</td>
+            <td>24/11/2024</td>
+            <td>The Old Bar</td>
+            <td>74-76 Johnston St, Fitzroy VIC 3065, Australia</td>
+            <td>https://www.facebook.com/events/1121957432889619/</td>
+            <td>16:00</td>
+            </tr>
+            <tr>
+            <td>FRENZEE - NYE ALBUM LAUNCH at The Old Bar</td>
+            <td>31/12/2024</td>
+            <td>The Old Bar</td>
+            <td>74-76 Johnston St, Fitzroy VIC 3065, Australia</td>
+            <td>https://www.facebook.com/events/1011124097454591/</td>
+            <td>19:00</td>
+            </tr>
+            <tr>
+            <td>The Resonant Heart – The Heart Whispers &amp; Whirls II</td>
+            <td>7/11/2024</td>
+            <td>Melbourne Recital Centre</td>
+            <td>31 Sturt St, Southbank VIC 3006, Australia</td>
+            <td>https://www.facebook.com/events/412899267887976/</td>
+            <td>19:00</td>
+            </tr>
+            <tr>
+            <td>Sonya Lifschitz &amp; Christine Johnston – A Little Midnight Music</td>
+            <td>13/11/2024</td>
+            <td>Melbourne Recital Centre</td>
+            <td>31 Sturt St, Southbank VIC 3006, Australia</td>
+            <td>https://www.facebook.com/events/788660523242531/</td>
+            <td>19:00</td>
+            </tr>
+            <tr>
+            <td>Sonorous X: Lauren Squire &amp; Joel Stern</td>
+            <td>14/11/2024</td>
+            <td>Melbourne Recital Centre</td>
+            <td>31 Sturt St, Southbank VIC 3006, Australia</td>
+            <td>https://www.facebook.com/events/452096747399003/</td>
+            <td>19:00</td>
+            </tr>
+            <tr>
+            <td>Australian Art Orchestra 30th Anniversary Concert</td>
+            <td>15/11/2024</td>
+            <td>Melbourne Recital Centre</td>
+            <td>31 Sturt St, Southbank VIC 3006, Australia</td>
+            <td>https://www.facebook.com/events/405800872515994/</td>
+            <td>19:00</td>
+            </tr>
+            <tr>
+            <td>The Boite – Firetail x Gamelan DanAnda</td>
+            <td>15/11/2024</td>
+            <td>Melbourne Recital Centre</td>
+            <td>31 Sturt St, Southbank VIC 3006, Australia</td>
+            <td>https://www.facebook.com/events/1098308244917228/</td>
+            <td>19:00</td>
+            </tr>
+            <tr>
+            <td>Nat Bartsch – Forever Changed</td>
+            <td>16/11/2024</td>
+            <td>Melbourne Recital Centre</td>
+            <td>31 Sturt St, Southbank VIC 3006, Australia</td>
+            <td>https://www.facebook.com/events/1144699320011103/</td>
+            <td>20:00</td>
+            </tr>
+            <tr>
+            <td>Affinity Quartet – Schubert&#39;s Death &amp; the Maiden</td>
+            <td>19/11/2024</td>
+            <td>Melbourne Recital Centre</td>
+            <td>31 Sturt St, Southbank VIC 3006, Australia</td>
+            <td>https://www.facebook.com/events/1469726140314475/</td>
+            <td>19:00</td>
+            </tr>
+            <tr>
+            <td>Ensemble Liaison with Eleanor Lyons</td>
+            <td>20/11/2024</td>
+            <td>Melbourne Recital Centre</td>
+            <td>31 Sturt St, Southbank VIC 3006, Australia</td>
+            <td>https://www.facebook.com/events/534071479163722/</td>
+            <td>19:00</td>
+            </tr>
+            <tr>
+            <td>Thelma Plum | Forum, Melbourne - SECOND SHOW ADDED!</td>
+            <td>7/11/2024</td>
+            <td>Forum Melbourne</td>
+            <td>154 Flinders St, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/1027293109060093/</td>
+            <td>13:27</td>
+            </tr>
+            <tr>
+            <td>Me First and the Gimme Gimmes with special guests Dwarves - Forum, Melbourne</td>
+            <td>7/11/2024</td>
+            <td>Forum Melbourne</td>
+            <td>154 Flinders St, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/503272625593317/</td>
+            <td>13:27</td>
+            </tr>
+            <tr>
+            <td>Pub Choir - Melbourne/Naarm - Forum Theatre (Honest Feedback Tour)</td>
+            <td>11/11/2024</td>
+            <td>Forum Melbourne</td>
+            <td>154 Flinders St, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/966539805175843/</td>
+            <td>19:00</td>
+            </tr>
+            <tr>
+            <td>Pub Choir - Melbourne/Naarm - Forum Theatre (Honest Feedback Tour) 2ND SHOW!</td>
+            <td>12/11/2024</td>
+            <td>Forum Melbourne</td>
+            <td>154 Flinders St, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/1218149586033433/</td>
+            <td>19:00</td>
+            </tr>
+            <tr>
+            <td>𝐒𝐎𝐋𝐃 𝐎𝐔𝐓 | DROPKICK MURPHYS / Melbourne / The Forum / with Alkaline Trio</td>
+            <td>17/11/2024</td>
+            <td>Forum Melbourne</td>
+            <td>154 Flinders St, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/1673409803472741/</td>
+            <td>19:00</td>
+            </tr>
+            <tr>
+            <td>𝐍𝐄𝐖 𝐒𝐇𝐎𝐖 | DROPKICK MURPHYS / Melbourne / The Forum / with Alkaline Trio</td>
+            <td>18/11/2024</td>
+            <td>Forum Melbourne</td>
+            <td>154 Flinders St, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/359390353867028/</td>
+            <td>19:00</td>
+            </tr>
+            <tr>
+            <td>HOODOO GURUS | The Forum, Melbourne * NEW SHOW</td>
+            <td>20/11/2024</td>
+            <td>Forum Melbourne</td>
+            <td>154 Flinders St, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/1214776929687625/</td>
+            <td>19:00</td>
+            </tr>
+            <tr>
+            <td>HOODOO GURUS | The Forum, Melbourne</td>
+            <td>21/11/2024</td>
+            <td>Forum Melbourne</td>
+            <td>154 Flinders St, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/240995322431673/</td>
+            <td>19:00</td>
+            </tr>
+            <tr>
+            <td>JessB &#39;Feels Like Home&#39; Album Launch @ Wax Music Lounge, Melbourne</td>
+            <td>21/11/2024</td>
+            <td>Wax Music Lounge</td>
+            <td>250 Flinders St, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/1051914586433584/</td>
+            <td>20:00</td>
+            </tr>
+            <tr>
+            <td>Techno Tangle: Connor Wall &amp; Neo (4HR Set)</td>
+            <td>23/11/2024</td>
+            <td>Wax Music Lounge</td>
+            <td>250 Flinders St, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/1573918443330977/</td>
+            <td>20:00</td>
+            </tr>
+            <tr>
+            <td>AMPHI &amp; Friends // with Interimm (Live), Bex and Mo</td>
+            <td>29/11/2024</td>
+            <td>Wax Music Lounge</td>
+            <td>250 Flinders St, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/519102081100164/</td>
+            <td>20:00</td>
+            </tr>
+            <tr>
+            <td>Anthony B In Conversation - Hosted by Stick Mareebo</td>
+            <td>5/12/2024</td>
+            <td>Wax Music Lounge</td>
+            <td>250 Flinders St, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/1258076311797465/</td>
+            <td>19:00</td>
+            </tr>
+            <tr>
+            <td>SLOW GRIND FEVER #107 (*9pm, *CASH ONLY*)</td>
+            <td>30/11/2024</td>
+            <td>Bar Open</td>
+            <td>317 Brunswick St, Fitzroy VIC 3065, Australia</td>
+            <td>https://www.facebook.com/events/1117439066603008/</td>
+            <td>21:00</td>
+            </tr>
+            <tr>
+            <td>Monty Alexander</td>
+            <td>7/11/2024</td>
+            <td>Bird&#39;s Basement</td>
+            <td>11 Singers Ln, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/845506390467613/</td>
+            <td>18:00</td>
+            </tr>
+            <tr>
+            <td>Monty Alexander</td>
+            <td>7/11/2024</td>
+            <td>Bird&#39;s Basement</td>
+            <td>11 Singers Ln, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/845506390467613/?event_time_id=845506403800945</td>
+            <td>18:00</td>
+            </tr>
+            <tr>
+            <td>Monty Alexander</td>
+            <td>7/11/2024</td>
+            <td>Bird&#39;s Basement</td>
+            <td>11 Singers Ln, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/845506390467613/?event_time_id=845506410467611</td>
+            <td>18:00</td>
+            </tr>
+            <tr>
+            <td>Monty Alexander</td>
+            <td>7/11/2024</td>
+            <td>Bird&#39;s Basement</td>
+            <td>11 Singers Ln, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/845506390467613/?event_time_id=845506407134278</td>
+            <td>18:00</td>
+            </tr>
+            <tr>
+            <td>Monty Alexander</td>
+            <td>7/11/2024</td>
+            <td>Bird&#39;s Basement</td>
+            <td>11 Singers Ln, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/845506390467613/?event_time_id=845506413800944</td>
+            <td>18:00</td>
+            </tr>
+            <tr>
+            <td>Monty Alexander</td>
+            <td>7/11/2024</td>
+            <td>Bird&#39;s Basement</td>
+            <td>11 Singers Ln, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/845506390467613/?event_time_id=845506393800946</td>
+            <td>18:00</td>
+            </tr>
+            <tr>
+            <td>Monty Alexander</td>
+            <td>7/11/2024</td>
+            <td>Bird&#39;s Basement</td>
+            <td>11 Singers Ln, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/845506390467613/?event_time_id=845506420467610</td>
+            <td>18:00</td>
+            </tr>
+            <tr>
+            <td>The Harmonix Experience</td>
+            <td>13/11/2024</td>
+            <td>Bird&#39;s Basement</td>
+            <td>11 Singers Ln, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/1661735117947696/</td>
+            <td>18:00</td>
+            </tr>
+            <tr>
+            <td>HOLLY JOLLY QUEENS</td>
+            <td>12/12/2024</td>
+            <td>Murmur Piano Bar</td>
+            <td>17 Warburton Ln, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/1269064844267980/</td>
+            <td>19:00</td>
+            </tr>
+            <tr>
+            <td>Boyce Avenue - Australia Tour 2024</td>
+            <td>16/11/2024</td>
+            <td>Festival Hall</td>
+            <td>300 Dudley St, West Melbourne VIC 3003, Australia</td>
+            <td>https://www.facebook.com/events/1581385905808841/</td>
+            <td>19:00</td>
+            </tr>
+            <tr>
+            <td>DPR - The Dream Reborn Tour 2024</td>
+            <td>10/12/2024</td>
+            <td>Festival Hall</td>
+            <td>300 Dudley St, West Melbourne VIC 3003, Australia</td>
+            <td>https://www.facebook.com/events/443224371939943/</td>
+            <td>19:00</td>
+            </tr>
+            <tr>
+            <td>Kandy Carnival</td>
+            <td>13/12/2024</td>
+            <td>Festival Hall</td>
+            <td>300 Dudley St, West Melbourne VIC 3003, Australia</td>
+            <td>https://www.facebook.com/events/2057102354735739/</td>
+            <td>18:00</td>
+            </tr>
+            <tr>
+            <td>Sugababes</td>
+            <td>3/01/2025</td>
+            <td>Festival Hall</td>
+            <td>300 Dudley St, West Melbourne VIC 3003, Australia</td>
+            <td>https://www.facebook.com/events/896820248708081/</td>
+            <td>0:00</td>
+            </tr>
+            <tr>
+            <td>Benson Boone</td>
+            <td>16/01/2025</td>
+            <td>Festival Hall</td>
+            <td>300 Dudley St, West Melbourne VIC 3003, Australia</td>
+            <td>https://www.facebook.com/events/3773086809629510/</td>
+            <td>20:00</td>
+            </tr>
+            <tr>
+            <td>Benson Boone</td>
+            <td>17/01/2025</td>
+            <td>Festival Hall</td>
+            <td>300 Dudley St, West Melbourne VIC 3003, Australia</td>
+            <td>https://www.facebook.com/events/1484740649070879/</td>
+            <td>20:00</td>
+            </tr>
+            <tr>
+            <td>Vengaboys - 90&#39;s Mania</td>
+            <td>24/01/2025</td>
+            <td>Festival Hall</td>
+            <td>300 Dudley St, West Melbourne VIC 3003, Australia</td>
+            <td>https://www.facebook.com/events/1276774176572619/</td>
+            <td>19:30</td>
+            </tr>
+            <tr>
+            <td>The Flaming Lips perform Yoshimi Battles the Pink Robots</td>
+            <td>1/02/2025</td>
+            <td>Festival Hall</td>
+            <td>300 Dudley St, West Melbourne VIC 3003, Australia</td>
+            <td>https://www.facebook.com/events/1030591665135268/</td>
+            <td>18:30</td>
+            </tr>
+            <tr>
+            <td>DUETS: Peggy Lee and Frank Sinatra</td>
+            <td>21/11/2024</td>
+            <td>Paris Cat Jazz Club</td>
+            <td>6 Goldie Pl, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/1994901607592827/</td>
+            <td>20:00</td>
+            </tr>
+            <tr>
+            <td>Come to Brazil (Melbourne)</td>
+            <td>22/11/2024</td>
+            <td>Paris Cat Jazz Club</td>
+            <td>6 Goldie Pl, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/1529191224639664/</td>
+            <td>18:30</td>
+            </tr>
+            <tr>
+            <td>No Regrets - The Edith Piaf Story (Paris Cat Jazz Club)</td>
+            <td>22/11/2024</td>
+            <td>Paris Cat Jazz Club</td>
+            <td>6 Goldie Pl, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/378775288604308/</td>
+            <td>21:00</td>
+            </tr>
+            <tr>
+            <td>A Norah Jones Tribute (Melbourne)</td>
+            <td>23/11/2024</td>
+            <td>Paris Cat Jazz Club</td>
+            <td>6 Goldie Pl, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/959803266009028/</td>
+            <td>18:00</td>
+            </tr>
+            <tr>
+            <td>Mel Searle Presents: ‘The Christmas Song’ - An Ella, Nat King Cole &amp; Friends Swingin&#39; Christmas</td>
+            <td>14/12/2024</td>
+            <td>Paris Cat Jazz Club</td>
+            <td>6 Goldie Pl, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/1662965077627158/</td>
+            <td>21:00</td>
+            </tr>
+            <tr>
+            <td>No Regrets - The Edith Piaf Story (Paris Cat Jazz Club)</td>
+            <td>9/01/2025</td>
+            <td>Paris Cat Jazz Club</td>
+            <td>6 Goldie Pl, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/918127910185251/</td>
+            <td>19:30</td>
+            </tr>
+            <tr>
+            <td>Morning Melodies 2024 Season</td>
+            <td>18/11/2024</td>
+            <td>Arts Centre Melbourne</td>
+            <td>100 St Kilda Rd, Southbank VIC 3004, Australia</td>
+            <td>https://www.facebook.com/events/344932704872465/</td>
+            <td>11:00</td>
+            </tr>
+            <tr>
+            <td>PLAY: Magicians at Work</td>
+            <td>11/12/2024</td>
+            <td>Arts Centre Melbourne</td>
+            <td>100 St Kilda Rd, Southbank VIC 3004, Australia</td>
+            <td>https://www.facebook.com/events/719102477012730/</td>
+            <td>19:30</td>
+            </tr>
+            <tr>
+            <td>PLAY: Magicians at Work</td>
+            <td>11/12/2024</td>
+            <td>Arts Centre Melbourne</td>
+            <td>100 St Kilda Rd, Southbank VIC 3004, Australia</td>
+            <td>https://www.facebook.com/events/7955852801173144/</td>
+            <td>19:30</td>
+            </tr>
+            <tr>
+            <td>PLAY: Script Roulette Podcast</td>
+            <td>19/11/2024</td>
+            <td>Arts Centre Melbourne</td>
+            <td>100 St Kilda Rd, Southbank VIC 3004, Australia</td>
+            <td>https://www.facebook.com/events/473972392257808/</td>
+            <td>18:00</td>
+            </tr>
+            <tr>
+            <td>PLAY: Frequency</td>
+            <td>20/11/2024</td>
+            <td>Arts Centre Melbourne</td>
+            <td>100 St Kilda Rd, Southbank VIC 3004, Australia</td>
+            <td>https://www.facebook.com/events/3779665475622037/</td>
+            <td>19:00</td>
+            </tr>
+            <tr>
+            <td>Music Industry Masterclasses</td>
+            <td>21/11/2024</td>
+            <td>Arts Centre Melbourne</td>
+            <td>100 St Kilda Rd, Southbank VIC 3004, Australia</td>
+            <td>https://www.facebook.com/events/1087185909691656/</td>
+            <td>17:30</td>
+            </tr>
+            <tr>
+            <td>Made in China 2.0</td>
+            <td>7/11/2024</td>
+            <td>Arts Centre Melbourne</td>
+            <td>100 St Kilda Rd, Southbank VIC 3004, Australia</td>
+            <td>https://www.facebook.com/events/796820832654173/</td>
+            <td>20:00</td>
+            </tr>
+            <tr>
+            <td>Made in China 2.0</td>
+            <td>7/11/2024</td>
+            <td>Arts Centre Melbourne</td>
+            <td>100 St Kilda Rd, Southbank VIC 3004, Australia</td>
+            <td>https://www.facebook.com/events/796820832654173/?event_time_id=796820865987503</td>
+            <td>20:00</td>
+            </tr>
+            <tr>
+            <td>The Mark Fitzgibbon Trio</td>
+            <td>8/11/2024</td>
+            <td>Uptown Jazz Cafe</td>
+            <td>1/177 Brunswick St, Fitzroy VIC 3065, Australia</td>
+            <td>https://www.facebook.com/events/1625861494671102/</td>
+            <td>19:30</td>
+            </tr>
+            <tr>
+            <td>The Paul Williamson Quartet plays the music of Thelonious Monk</td>
+            <td>7/11/2024</td>
+            <td>Uptown Jazz Cafe</td>
+            <td>1/177 Brunswick St, Fitzroy VIC 3065, Australia</td>
+            <td>https://www.facebook.com/events/525512246923805/</td>
+            <td>13:27</td>
+            </tr>
+            <tr>
+            <td>Hetty Kate at Uptown (Fitzroy, AU)</td>
+            <td>14/11/2024</td>
+            <td>Uptown Jazz Cafe</td>
+            <td>1/177 Brunswick St, Fitzroy VIC 3065, Australia</td>
+            <td>https://www.facebook.com/events/1477278216309157/</td>
+            <td>20:00</td>
+            </tr>
+            <tr>
+            <td>Andrea Keller Transients Trio w Sam Anning and Dave Beck!</td>
+            <td>15/11/2024</td>
+            <td>Uptown Jazz Cafe</td>
+            <td>1/177 Brunswick St, Fitzroy VIC 3065, Australia</td>
+            <td>https://www.facebook.com/events/1069080797954781/</td>
+            <td>19:30</td>
+            </tr>
+            <tr>
+            <td>The Mat Jodrell Quartet</td>
+            <td>23/11/2024</td>
+            <td>Uptown Jazz Cafe</td>
+            <td>1/177 Brunswick St, Fitzroy VIC 3065, Australia</td>
+            <td>https://www.facebook.com/events/2035961870190653/</td>
+            <td>19:30</td>
+            </tr>
+            <tr>
+            <td>Hugh Stuckey Trio</td>
+            <td>29/11/2024</td>
+            <td>Uptown Jazz Cafe</td>
+            <td>1/177 Brunswick St, Fitzroy VIC 3065, Australia</td>
+            <td>https://www.facebook.com/events/528515086675002/</td>
+            <td>19:30</td>
+            </tr>
+            <tr>
+            <td>Barney McAll Trio !</td>
+            <td>30/11/2024</td>
+            <td>Uptown Jazz Cafe</td>
+            <td>1/177 Brunswick St, Fitzroy VIC 3065, Australia</td>
+            <td>https://www.facebook.com/events/1629717784557769/</td>
+            <td>19:35</td>
+            </tr>
+            <tr>
+            <td>Brad Williams - MELBOURNE</td>
+            <td>18/11/2024</td>
+            <td>Juke&#39;s Karaoke Crown Melbourne</td>
+            <td>Level 1 Metropol precinct, Crown Melbourne, 8 Whiteman St, Southbank VIC 3006, Australia</td>
+            <td>https://www.facebook.com/events/739773735036150/</td>
+            <td>19:00</td>
+            </tr>
+            <tr>
+            <td>Bjorn Again - MELBOURNE, VIC 2024 - Waterloo Anniversary Tour</td>
+            <td>7/11/2024</td>
+            <td>Juke&#39;s Karaoke Crown Melbourne</td>
+            <td>Level 1 Metropol precinct, Crown Melbourne, 8 Whiteman St, Southbank VIC 3006, Australia</td>
+            <td>https://www.facebook.com/events/868595708408827/</td>
+            <td>13:27</td>
+            </tr>
+            <tr>
+            <td>John Bishop - Melbourne</td>
+            <td>26/11/2024</td>
+            <td>Juke&#39;s Karaoke Crown Melbourne</td>
+            <td>Level 1 Metropol precinct, Crown Melbourne, 8 Whiteman St, Southbank VIC 3006, Australia</td>
+            <td>https://www.facebook.com/events/1127633918544811/</td>
+            <td>19:30</td>
+            </tr>
+            <tr>
+            <td>Legends in Concert</td>
+            <td>9/01/2025</td>
+            <td>Juke&#39;s Karaoke Crown Melbourne</td>
+            <td>Level 1 Metropol precinct, Crown Melbourne, 8 Whiteman St, Southbank VIC 3006, Australia</td>
+            <td>https://www.facebook.com/events/1154047275692684/</td>
+            <td>19:30</td>
+            </tr>
+            <tr>
+            <td>Christmas Lunch at State Of Grace</td>
+            <td>25/12/2024</td>
+            <td>State of Grace</td>
+            <td>27 King St, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/1061628771919471/</td>
+            <td>11:00</td>
+            </tr>
+            <tr>
+            <td>New Year&#39;s Eve at State of Grace</td>
+            <td>31/12/2024</td>
+            <td>State of Grace</td>
+            <td>27 King St, Melbourne VIC 3000, Australia</td>
+            <td>https://www.facebook.com/events/495593140123546/</td>
+            <td>19:30</td>
+            </tr>
+            <tr>
+            <td>EMO NEVER SLEEPS: DECEMBER</td>
+            <td>6/12/2024</td>
+            <td>EMO NEVER SLEEPS</td>
+            <td>629 Bourke St, Melbourne VIC 3004, Australia</td>
+            <td>https://www.facebook.com/events/829633832582459/</td>
+            <td>22:00</td>
+            </tr>
+            <tr>
+            <td>ENS 4TH BIRTHDAY: EMOPALOOZA</td>
+            <td>7/11/2024</td>
+            <td>EMO NEVER SLEEPS</td>
+            <td>629 Bourke St, Melbourne VIC 3004, Australia</td>
+            <td>https://www.facebook.com/events/307391512396163/</td>
+            <td>13:27</td>
+            </tr>
+            <tr>
+            <td>NEW YEARS EMO: 2024</td>
+            <td>31/12/2024</td>
+            <td>EMO NEVER SLEEPS</td>
+            <td>629 Bourke St, Melbourne VIC 3004, Australia</td>
+            <td>https://www.facebook.com/events/1892210754579999/</td>
+            <td>20:00</td>
+            </tr>
+            <tr>
+            <td>Keep The Fire Burning</td>
+            <td>28/03/2025</td>
+            <td>Yarra Botanica</td>
+            <td>Southbank Promenade, Southbank VIC 3006, Australia</td>
+            <td>https://www.facebook.com/events/1127346938992147/</td>
+            <td>18:00</td>
+            </tr>
+            </tbody></table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
