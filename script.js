@@ -1,51 +1,65 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const table = document.querySelector("table"); // Selects the table element
-    const rows = Array.from(table.querySelectorAll("tbody tr")); // Selects all rows in the tbody
-    const dateFilter = document.getElementById("dateFilter");
-    const venueFilter = document.getElementById("venueFilter");
+// Global variable to hold event data from CSV
+let eventsData = [];
 
-    // Populate the filter dropdowns with unique dates and venues
-    const dates = new Set();
-    const venues = new Set();
-
-    rows.forEach(row => {
-        const date = row.cells[1].innerText; // Adjust index for Date column
-        const venue = row.cells[3].innerText; // Adjust index for Venue column
-        dates.add(date);
-        venues.add(venue);
+// Function to load data from CSV and populate the table initially
+function loadEventData() {
+    Papa.parse("event_table.csv", {
+        download: true,
+        header: true,
+        complete: function(results) {
+            eventsData = results.data;
+            populateTable(eventsData); // Populate the table with all events initially
+        },
+        error: function(error) {
+            console.error("Error loading CSV:", error);
+        }
     });
+}
 
-    dates.forEach(date => {
-        const option = document.createElement("option");
-        option.value = date;
-        option.innerText = date;
-        dateFilter.appendChild(option);
+// Function to populate the table with event data
+function populateTable(data) {
+    const tableBody = document.querySelector("table tbody");
+    tableBody.innerHTML = ""; // Clear any existing rows
+
+    data.forEach(event => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${event.Event_Title}</td>
+            <td>${event.Date}</td>
+            <td>${event.Time}</td>
+            <td>${event.Venue}</td>
+            <td>${event.Address}</td>
+            <td><a href="${event.url}" target="_blank">Link</a></td>
+        `;
+        tableBody.appendChild(row);
     });
+}
 
-    venues.forEach(venue => {
-        const option = document.createElement("option");
-        option.value = venue;
-        option.innerText = venue;
-        venueFilter.appendChild(option);
-    });
+// Function to filter events by the selected date range
+function applyDateRangeFilter() {
+    // Get the selected start and end dates
+    const startDate = document.getElementById("startDate").value;
+    const endDate = document.getElementById("endDate").value;
 
-    // Define the filter function
-    function filterTable() {
-        const selectedDate = dateFilter.value;
-        const selectedVenue = venueFilter.value;
-
-        rows.forEach(row => {
-            const date = row.cells[1].innerText; // Adjust index for Date column
-            const venue = row.cells[3].innerText; // Adjust index for Venue column
-
-            const dateMatch = !selectedDate || date === selectedDate;
-            const venueMatch = !selectedVenue || venue === selectedVenue;
-
-            row.style.display = dateMatch && venueMatch ? "" : "none";
-        });
+    // Check if both dates are selected
+    if (!startDate || !endDate) {
+        alert("Please select both a start and an end date.");
+        return;
     }
 
-    // Attach the filter function to the dropdowns
-    dateFilter.addEventListener("change", filterTable);
-    venueFilter.addEventListener("change", filterTable);
-});
+    // Convert the selected dates to Date objects
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+
+    // Filter events based on the date range
+    const filteredData = eventsData.filter(event => {
+        const eventDate = new Date(event.Date);
+        return eventDate >= start && eventDate <= end;
+    });
+
+    // Populate the table with filtered data
+    populateTable(filteredData);
+}
+
+// Load event data on page load
+loadEventData();
