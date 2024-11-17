@@ -9,76 +9,10 @@
     <!-- Additional meta tags and stylesheets -->
     <meta name="description" content="Melbourne’s most extensive gig guide">
 
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-    <style>
-        /* General Page Styling */
-        body {
-            background-color: black;
-            color: white;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        /* Main Heading */
-        h1 {
-            font-family: "Amasis MT Pro Black", Arial, sans-serif;
-            font-size: 3em;
-            font-weight: bold;
-            color: white;
-            margin-top: 20px;
-        }
-
-        /* Subheading */
-        h2 {
-            font-size: 1.5em;
-            font-weight: normal;
-            color: #cccccc;
-            margin-top: 10px;
-            margin-bottom: 30px;
-        }
-
-        /* Table Styling */
-        table {
-            width: 90%;
-            max-width: 800px;
-            margin-top: 20px;
-            border-collapse: collapse;
-        }
-
-        table, th, td {
-            border: 1px solid white;
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #333333;
-            color: white;
-        }
-
-        tr:nth-child(even) {
-            background-color: #1a1a1a;
-        }
-
-        /* Filter Section */
-        .filters {
-            margin-bottom: 20px;
-        }
-
-        select {
-            padding: 5px;
-            font-size: 1em;
-            margin-right: 10px;
-        }
-    </style>
 </head>
 <body>
     <!-- Main Heading -->
@@ -87,7 +21,7 @@
 
     <!-- Filters -->
     <div class="filters">
-            <!-- Date Range Picker -->
+        <!-- Date Range Picker -->
         <label for="startDate">Start Date:</label>
         <input type="date" id="startDate">
         
@@ -96,13 +30,11 @@
 
         <button onclick="applyDateRangeFilter()">Filter by Date Range</button>
         
-        <label for="venueFilter">Venue:</label>
-        <select id="venueFilter">
-            <option value="">All Venues</option>
-        </select>
     </div>
 
     <!-- Table -->
+<!-- Table Wrapper for Scrolling -->
+<div class="table-container">
     <table>
         <thead>
             <tr>
@@ -116,6 +48,8 @@
         </thead>
         <tbody></tbody>
     </table>
+</div>
+
 
     <!-- Script for Loading and Displaying Data -->
     <script src="script.js"></script>
