@@ -1,6 +1,19 @@
 // Global variable to hold event data from CSV
 let eventsData = [];
 
+// Helper function to format the date from yyyy/mm/dd to dd/mm
+function formatDate(isoDate) {
+    if (!isoDate || isoDate.trim() === "") return ""; // Handle empty or invalid dates gracefully
+
+    const dateParts = isoDate.split("-"); // Split the date string
+    if (dateParts.length === 3) {
+        const [year, month, day] = dateParts; // Destructure into year, month, day
+        return `${day}/${month}`; // Return in the format dd/mm
+    }
+
+    return isoDate; // Return the original string if not in expected format
+}
+
 // Function to load data from CSV and populate the table initially
 function loadEventData() {
     Papa.parse("event_table.csv", {
@@ -25,7 +38,7 @@ function populateTable(data) {
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>${event.Event_Title}</td>
-            <td>${event.Date}</td>
+            <td>${formatDate(event.Date)}</td> <!-- Apply formatting here -->
             <td>${event.Time}</td>
             <td>${event.Venue}</td>
             <td>${event.Address}</td>
