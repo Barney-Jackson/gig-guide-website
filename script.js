@@ -29,16 +29,40 @@ function loadEventData() {
     });
 }
 
-// Function to populate the table with event data
+// Function to populate the table with grouped event data
 function populateTable(data) {
     const tableBody = document.querySelector("table tbody");
     tableBody.innerHTML = ""; // Clear any existing rows
 
+    let currentDate = ""; // To track when to create a new subheading
+
     data.forEach(event => {
+        // Parse the event date
+        const eventDate = new Date(event.Date);
+        const formattedDate = eventDate.toLocaleDateString("en-GB", {
+            weekday: "long", // Full name of the weekday
+            day: "2-digit", // Two-digit day
+            month: "2-digit", // Two-digit month
+        });
+
+        // If the event date is different from the current date, add a new subheading
+        if (formattedDate !== currentDate) {
+            currentDate = formattedDate;
+
+            const subheadingRow = document.createElement("tr");
+            subheadingRow.classList.add('subheading-row'); // Add the class for styling
+            subheadingRow.innerHTML = `
+                <td colspan="5" style="text-align: left; font-weight: bold; background-color: #222;">
+                    ${currentDate}
+                </td>
+            `;
+            tableBody.appendChild(subheadingRow);
+        }
+
+        // Add the event row
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>${event.Event_Title}</td>
-            <td>${formatDate(event.Date)}</td> <!-- Apply formatting here -->
             <td>${event.Time}</td>
             <td>${event.Venue}</td>
             <td>${event.Address}</td>

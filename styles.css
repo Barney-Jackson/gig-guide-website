@@ -18,7 +18,7 @@ body {
 /* Main Heading */
 h1 {
     font-family: "Amasis MT Pro Black", Arial, sans-serif;
-    font-size: 3rem; /* 48px based on root font size */
+    font-size: 3rem; /* 48px */
     font-weight: bold;
     color: white;
     margin-top: 1.25rem; /* 20px */
@@ -33,56 +33,33 @@ h2 {
     margin-bottom: 1.875rem; /* 30px */
 }
 
-/* Table Styling */
-table {
-    width: 90%;
-    max-width: 50rem; /* 800px */
-    margin-top: 1.25rem; /* 20px */
-    border-collapse: collapse;
-}
-
-th, td {
-    padding: 0.625rem; /* 10px */
-    text-align: center;
-}
-
-th {
-    background-color: #333333;
-    color: white;
-}
-
-tr:nth-child(even) {
-    background-color: #1a1a1a;
-}
-
 /* Filter Section */
 .filters {
     margin-bottom: 1.25rem; /* 20px */
 }
 
-select {
+select, input, button {
     padding: 0.3125rem; /* 5px */
     font-size: 1rem; /* 16px */
     margin-right: 0.625rem; /* 10px */
 }
 
-/* table container for horizontal scrolling */
+/* Table Container for Horizontal Scrolling */
 .table-container {
     width: 100%;
     overflow-x: auto;
-    margin-top: 1.25rem; /* Space above */
-    display: flex; /* Flexbox for alignment */
-    justify-content: center; /* Centers the content horizontally */
+    margin-top: 1.25rem;
+    display: flex;
+    justify-content: center;
 }
 
+/* Table Styling */
 table {
     width: 100%;
     max-width: 800px; /* Restrict the maximum width of the table */
     border-collapse: collapse;
 }
 
-
-/* Table Styling */
 th, td {
     padding: 0.625rem;
     text-align: center;
@@ -96,6 +73,17 @@ th {
 tr:nth-child(even) {
     background-color: #1a1a1a;
 }
+
+/* Subheading Row Styling (Grouped Dates) */
+table tbody tr.subheading-row td {
+    font-size: 1.1rem;
+    background-color: #8088ff !important;
+    color: #000000;
+    text-align: center !important;
+    padding: 10px;
+    font-weight: bold;
+}
+
 
 /* Media Queries for Smaller Screens */
 @media (max-width: 600px) {
@@ -123,12 +111,4 @@ tr:nth-child(even) {
         word-wrap: break-word;
     }
 
-    th {
-        font-weight: bold;
-    }
-
-    /* Hide the Address column on small screens */
-    th:nth-child(5), td:nth-child(5) {
-        display: none;
-    }
 }
