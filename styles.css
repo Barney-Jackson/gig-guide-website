@@ -34,8 +34,42 @@ h2 {
 }
 
 /* Filter Section */
-.filters {
-    margin-bottom: 1.25rem; /* 20px */
+.filter-group {
+    display: grid;
+    grid-template-columns: repeat(5, 130px); /* five equal-width columns */
+    max-width: 800px;
+    gap: 0.5rem;
+    align-items: center; 
+    margin: 0 auto; /* Center the grid container horizontally */
+    justify-items: stretch;
+    margin-bottom: 1.25rem;
+}
+
+.filter-group label {
+    min-width: 100px; /* Ensures labels have a consistent width */
+    text-align: right;
+}
+
+.filter-group input {
+    flex: 1;
+    max-width: 200px; /* Default max-width for larger screens */
+    padding: 0.5rem; /* Adds padding for better touch usability */
+}
+
+.filter-group button {
+    grid-column: span 1;
+    flex: 0;
+    padding: 0.5rem 1rem; /* Adjusts button size for easier tapping */
+    width: 100%; /* Ensure full width for smaller screens if needed */
+    cursor: pointer; /* Pointer cursor on hover */
+
+}
+.filter-group button:hover {
+    flex: 0;
+    padding: 0.5rem 1rem; /* Adjusts button size for easier tapping */
+    width: 100%; /* Ensure full width for smaller screens if needed */
+    border-radius: 5px; /* Rounded corners for uniformity */
+    background-color: #92a6bb; /* Slightly darker blue on hover */
 }
 
 select, input, button {
@@ -85,19 +119,38 @@ table tbody tr.subheading-row td {
 }
 
 
+
+
+
 /* Media Queries for Smaller Screens */
-@media (max-width: 600px) {
-    .filters {
+@media (max-width: 768px) {
+    .filter-group {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 0.5rem;
+        gap: 1rem; /* Slightly larger gap for clarity */
+        padding: 0 1rem; /* Add horizontal padding for a better layout */
     }
 
-    .filters label, .filters input, .filters select, .filters button {
+    .filters label, 
+    .filters input, 
+    .filters select, 
+    .filters button {
         font-size: 0.9rem;
         width: 90%;
         max-width: 300px;
+    }
+
+    /* Improve usability for inputs on smaller screens */
+    .filters input {
+        padding: 0.5rem; /* Add padding for better tap usability */
+        min-width: 200px; /* Ensure inputs have a minimum width */
+    }
+
+    /* Adjust buttons for better spacing and usability */
+    .filters button {
+        padding: 0.5rem 1rem; /* Ensure buttons are easier to tap */
+        text-align: center; /* Center-align button text */
     }
 
     /* Table Adjustments */
@@ -110,5 +163,5 @@ table tbody tr.subheading-row td {
         padding: 0.25rem;
         word-wrap: break-word;
     }
-
 }
+

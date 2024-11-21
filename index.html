@@ -30,41 +30,56 @@
     <h1>GIGGER</h1>
     <h2>Melbourne’s most extensive gig guide</h2>
 
+
     <!-- Filters -->
     <div class="filters">
         <!-- Date Range Picker -->
-        <label for="startDate">Start Date:</label>
-        <input type="date" id="startDate">
-        
-        <label for="endDate">End Date:</label>
-        <input type="date" id="endDate">
+        <div class="filter-group">
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate">
+            
+            <label for="endDate">End Date:</label>
+            <input type="date" id="endDate">
 
-        <button onclick="applyDateRangeFilter()">Filter by Date Range</button>
-        
-    </div>
+            <button onclick="applyDateRangeFilter()">Filter by Date</button>
+        </div>
 
-    <!-- Table -->
-    <!-- Table Wrapper for Scrolling -->
-    <div class="table-container">
-        <table>
-            <thead>
-                <tr>
-                    <th>Event Name</th>
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Venue</th>
-                    <th>Link</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Example of a subheading row for grouped dates -->
-                <tr class="subheading-row">
-                    <td colspan="6">Grouped Dates</td>
-                </tr>
-                <!-- Your event rows will go here -->
-            </tbody>
-        </table>
+        <!-- Location Range Picker -->
+        <div class="filter-group">
+            <label for="address">Address:</label>
+            <input type="text" id="address" placeholder="Enter address">
+            
+            <label for="radius">Radius (km):</label>
+            <input type="number" id="radius" placeholder="e.g., 5">
+            
+            <button onclick="applyRadiusFilter()">Filter by Location</button>
+        </div>
     </div>
+</div>
+
+
+<!-- Table -->
+<!-- Table Wrapper for Scrolling -->
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Event Name</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Venue</th>
+                <th>Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Example of a subheading row for grouped dates -->
+            <tr class="subheading-row">
+                <td colspan="6">Grouped Dates</td>
+            </tr>
+            <!-- Your event rows will go here -->
+        </tbody>
+    </table>
+
 
     <!-- Script for Loading and Displaying Data -->
     <script src="script.js"></script>
