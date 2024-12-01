@@ -1,12 +1,12 @@
 // Global variable to hold event data
 let eventsData = [];
 
-// Helper function to format the date from dd/mm/yyyy to a readable format
-function formatDate(ddmmyyyy) {
-    if (!ddmmyyyy || ddmmyyyy.trim() === "") return ""; // Handle empty or invalid dates gracefully
+// Helper function to format the date from yyyy/mm/dd to dd/mm/yyyy
+function formatDate(isoDate) {
+    if (!isoDate || isoDate.trim() === "") return ""; // Handle empty or invalid dates gracefully
 
-    const [day, month, year] = ddmmyyyy.split("/");
-    return `${day}/${month}`; // Format: dd/mm
+    const [year, month, day] = isoDate.split("/");
+    return `${day}/${month}/${year}`; // Format: dd/mm/yyyy
 }
 
 // Convert degrees to radians
@@ -50,8 +50,7 @@ function populateTable(data) {
     let currentDate = "";
 
     data.forEach(event => {
-        const [day, month, year] = event.Date.split("/");
-        const eventDate = new Date(`${year}-${month}-${day}`); // Convert dd/mm/yyyy to Date object
+        const eventDate = new Date(event.Date); // Parse yyyy/mm/dd directly
         const formattedDate = eventDate.toLocaleDateString("en-GB", {
             weekday: "long",
             day: "2-digit",
@@ -142,14 +141,11 @@ function applyDateRangeFilter() {
         return;
     }
 
-    const [startDay, startMonth, startYear] = startDate.split("/");
-    const [endDay, endMonth, endYear] = endDate.split("/");
-    const start = new Date(`${startYear}-${startMonth}-${startDay}`);
-    const end = new Date(`${endYear}-${endMonth}-${endDay}`);
+    const start = new Date(startDate); // yyyy/mm/dd is ISO-like, so this works
+    const end = new Date(endDate);
 
     const filteredData = eventsData.filter(event => {
-        const [eventDay, eventMonth, eventYear] = event.Date.split("/");
-        const eventDate = new Date(`${eventYear}-${eventMonth}-${eventDay}`);
+        const eventDate = new Date(event.Date);
         return eventDate >= start && eventDate <= end;
     });
 
