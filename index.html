@@ -23,7 +23,6 @@
     <!-- Link to External CSS -->
     <link rel="stylesheet" href="styles.css">
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 </head>
 <body>
     <!-- Main Heading -->
@@ -56,32 +55,46 @@
         </div>
     </div>
 </div>
+<div id="tabs">
+    <button class="tab-button" id="table-tab" onclick="showTab('table-tab', 'table')">Table View</button>
+    <button class="tab-button" id="map-tab" onclick="showTab('map-tab', 'map')">Map View</button>
+</div>
 
 
-<!-- Table -->
-<!-- Table Wrapper for Scrolling -->
-<div class="table-container">
-    <table>
-        <thead>
-            <tr>
-                <th>Event Name</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Venue</th>
-                <th>Link</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Example of a subheading row for grouped dates -->
-            <tr class="subheading-row">
-                <td colspan="6">Grouped Dates</td>
-            </tr>
-            <!-- Your event rows will go here -->
-        </tbody>
-    </table>
 
+    <!-- Map-->
+    <div id="map" class="tab-content">
+
+    </div>
+
+    <!-- Table -->
+    <div id="table" class="tab-content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Event Name</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Venue</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Example of a subheading row for grouped dates -->
+                    <tr class="subheading-row">
+                        <td colspan="6">Grouped Dates</td>
+                    </tr>
+                    <!-- Your event rows will go here -->
+                </tbody>
+            </table>
+    </div>
+    
 
     <!-- Script for Loading and Displaying Data -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBX9OiBSEsyLVrn86jYrYiKHrBOg7S9bCc&libraries=places&callback=initMap" async defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     <script src="script.js"></script>
+
+
 </body>
 </html>
