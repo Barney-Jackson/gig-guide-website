@@ -40,7 +40,6 @@
             <label for="endDate">End Date:</label>
             <input type="date" id="endDate">
 
-            <button onclick="applyDateRangeFilter()">Filter by Date</button>
         </div>
 
         <!-- Location Range Picker -->
@@ -51,9 +50,14 @@
             <label for="radius">Radius (km):</label>
             <input type="number" id="radius" placeholder="e.g., 5">
             
-            <button onclick="applyRadiusFilter()">Filter by Location</button>
         </div>
+        <div class="search-button">
+            <button onclick="searchButtonPressed()">Search</button>
+        </div>
+
     </div>
+
+
 </div>
 <div id="tabs">
     <button class="tab-button" id="table-tab" onclick="showTab('table-tab', 'table')">Table View</button>
@@ -63,9 +67,7 @@
 
 
     <!-- Map-->
-    <div id="map" class="tab-content">
-
-    </div>
+    <div id="map" class="tab-content"></div>
 
     <!-- Table -->
     <div id="table" class="tab-content">
@@ -79,7 +81,7 @@
                         <th>Link</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="table-body">
                     <!-- Example of a subheading row for grouped dates -->
                     <tr class="subheading-row">
                         <td colspan="6">Grouped Dates</td>

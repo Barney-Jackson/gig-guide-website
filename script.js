@@ -57,7 +57,10 @@ function loadEventData() {
 
 // Function to populate the table with grouped event data
 function populateTable(data) {
-    const tableBody = document.querySelector("table tbody");
+    //const tableBody = document.querySelector("table tbody");
+    //const tableBody = document.getElementById("table");
+    const tableBody = document.getElementById("table-body");
+
     tableBody.innerHTML = "";
 
     let currentDate = "";
@@ -207,34 +210,58 @@ function populateMap(data) {
 
 
 
+// Search button pressed
+function searchButtonPressed() {
 
-
-// Filter events by radius
-function applyRadiusFilter() {
+    const startDate = document.getElementById("startDate").value;
+    const endDate = document.getElementById("endDate").value;
     const inputAddress = document.getElementById("address").value;
     const radius = parseFloat(document.getElementById("radius").value);
 
-    if (!inputAddress || isNaN(radius)) {
+    // If both date range and radius filtering are needed
+    if ((startDate || endDate) && (inputAddress || !isNaN(radius))) {
+        geocodeAddress(inputAddress, (userLat, userLon) => {
+            let filteredData = applyDateRangeFilter(eventsData, startDate, endDate);
+            filteredData = applyRadiusFilter(filteredData, userLat, userLon, radius);
+            populateTable(filteredData);
+            populateMap(filteredData);
+        });
+    } else if (startDate || endDate) {
+        // Only date range filtering
+        const filteredData = applyDateRangeFilter(eventsData, startDate, endDate);
+        populateTable(filteredData);
+        populateMap(filteredData);
+
+    } else if (inputAddress || !isNaN(radius)) {
+        // Only radius filtering
+        geocodeAddress(inputAddress, (userLat, userLon) => {
+            const filteredData = applyRadiusFilter(eventsData, userLat, userLon, radius);
+            populateTable(filteredData);
+            populateMap(filteredData);
+        });
+    } else {
+        alert("Please enter valid search criteria.");
+    }
+}
+
+// Updated Function to Filter Events by Radius
+function applyRadiusFilter(data, userLat, userLon, radius) {
+    if (!userLat || !userLon || isNaN(radius)) {
         alert("Please enter a valid address and radius.");
-        return;
+        return data;
     }
 
-    geocodeAddress(inputAddress, (userLat, userLon) => {
-        const filteredEvents = eventsData.filter(event => {
-            if (!isNaN(event.Latitude) && !isNaN(event.Longitude)) {
-                const distance = calculateDistance(
-                    userLat,
-                    userLon,
-                    parseFloat(event.Latitude),
-                    parseFloat(event.Longitude)
-                );
-                return distance <= radius;
-            }
-            return false;
-        });
-
-        populateTable(filteredEvents);
-        populateMap(filteredEvents); // Update the map with filtered data
+    return data.filter(event => {
+        if (!isNaN(event.Latitude) && !isNaN(event.Longitude)) {
+            const distance = calculateDistance(
+                userLat,
+                userLon,
+                parseFloat(event.Latitude),
+                parseFloat(event.Longitude)
+            );
+            return distance <= radius;
+        }
+        return false;
     });
 }
 
@@ -259,28 +286,21 @@ function geocodeAddress(address, callback) {
         });
 }
 
-// Function to filter events by the selected date range
-function applyDateRangeFilter() {
-    const startDate = document.getElementById("startDate").value;
-    const endDate = document.getElementById("endDate").value;
-
+// Updated Function to Filter Events by Date Range
+function applyDateRangeFilter(data, startDate, endDate) {
     if (!startDate || !endDate) {
         alert("Please select both a start and an end date.");
-        return;
+        return data;
     }
 
     const start = new Date(startDate); // yyyy/mm/dd is ISO-like, so this works
     const end = new Date(endDate);
 
-    const filteredData = eventsData.filter(event => {
+    return data.filter(event => {
         const eventDate = new Date(event.Date);
         return eventDate >= start && eventDate <= end;
     });
-
-    populateTable(filteredData);
-    populateMap(filteredData);
 }
-
 
 function showTab(tabId, contentId) {
     // Hide all tab contents
@@ -291,10 +311,12 @@ function showTab(tabId, contentId) {
     const tabs = document.querySelectorAll('.tab-button');
     tabs.forEach(tab => tab.classList.remove('active'));
 
-    // Show the selected content and mark the tab as active
+    // Show the selected conte  nt and mark the tab as active
     document.getElementById(contentId).classList.add('active');
     document.getElementById(tabId).classList.add('active');
-    loadEventData();
+    if (tabId === "table-tab") {
+        populateTable(eventsData); // Re-populate the table when switching to the table tab
+    }
 }
 
 // Load event data on page load
