@@ -89,7 +89,6 @@ function populateTable(data) {
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>${event.Event_Title}</td>
-            <td>${event.Time}</td>
             <td>${event.Venue}</td>
             <td>${event.Address}</td>
             <td><a href="${event.url}" target="_blank">Link</a></td>
