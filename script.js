@@ -217,6 +217,7 @@ function searchButtonPressed() {
     const inputAddress = document.getElementById("address").value;
     const radius = parseFloat(document.getElementById("radius").value);
 
+
     // If both date range and radius filtering are needed
     if ((startDate || endDate) && (inputAddress || !isNaN(radius))) {
         geocodeAddress(inputAddress, (userLat, userLon) => {
@@ -318,10 +319,31 @@ function showTab(tabId, contentId) {
     }
 }
 
+
+
+// Initialize the Autocomplete feature for the Address input field
+function initAutocomplete() {
+    const addressInput = document.getElementById("address");
+
+    // Initialize Google Places Autocomplete
+    const autocomplete = new google.maps.places.Autocomplete(addressInput, {
+        types: ["geocode"], // Restrict to address suggestions
+        componentRestrictions: { country: "au" }, // Optional: Restrict to Australia
+    });
+
+    autocomplete.addListener("place_changed", () => {
+        const place = autocomplete.getPlace();
+        console.log("Selected place:", place);
+    });
+}
+
+
 // Load event data on page load
 function initialize() {
     loadEventData();
     // Ensure the default tab is displayed
     document.getElementById('table-tab').click();
+    initAutocomplete(); // Function to initialize the autocomplete feature
+    initMap(); // Function to initialize the map
 }
 initialize();

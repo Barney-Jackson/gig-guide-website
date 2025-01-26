@@ -1,103 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFMZGH2KX8"></script>
+
+    <!-- Google Maps API -->
+    <script async 
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBX9OiBSEsyLVrn86jYrYiKHrBOg7S9bCc&libraries=places&callback=initialize">
+    </script>
+
     <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-HFMZGH2KX8');
     </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gigger</title>
-    <!-- Favicon link -->
     <link rel="icon" href="favicon.png" type="image/x-icon">
-    <!-- Additional meta tags and stylesheets -->
     <meta name="description" content="Melbourne’s most extensive gig guide">
-
-    <!-- Link to External CSS -->
     <link rel="stylesheet" href="styles.css">
-    
 </head>
 <body>
-    <!-- Main Heading -->
     <h1>GIGGER</h1>
     <h2>Melbourne’s most extensive gig guide</h2>
 
-
-    <!-- Filters -->
     <div class="filters">
-        <!-- Date Range Picker -->
         <div class="filter-group">
             <label for="startDate">Start Date:</label>
             <input type="date" id="startDate">
-            
             <label for="endDate">End Date:</label>
             <input type="date" id="endDate">
-
         </div>
-
-        <!-- Location Range Picker -->
         <div class="filter-group">
             <label for="address">Address:</label>
-            <input type="text" id="address" placeholder="Enter address">
-            
+            <input type="text" id="address" class="adress-input" placeholder="Enter address">
             <label for="radius">Radius (km):</label>
             <input type="number" id="radius" placeholder="e.g., 5">
-            
         </div>
         <div class="search-button">
             <button onclick="searchButtonPressed()">Search</button>
         </div>
-
     </div>
 
+    <div id="tabs">
+        <button class="tab-button" id="table-tab" onclick="showTab('table-tab', 'table')">Table View</button>
+        <button class="tab-button" id="map-tab" onclick="showTab('map-tab', 'map')">Map View</button>
+    </div>
 
-</div>
-<div id="tabs">
-    <button class="tab-button" id="table-tab" onclick="showTab('table-tab', 'table')">Table View</button>
-    <button class="tab-button" id="map-tab" onclick="showTab('map-tab', 'map')">Map View</button>
-</div>
-
-
-
-    <!-- Map-->
     <div id="map" class="tab-content"></div>
 
-    <!-- Table -->
     <div id="table" class="tab-content">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Event Name</th>
-                        <th>Venue</th>
-                        <th>Address</th>
-                        <th>Link</th>
-                    </tr>
-                </thead>
-                <tbody id="table-body">
-                    <!-- Example of a subheading row for grouped dates -->
-                    <tr class="subheading-row">
-                        <td colspan="6">Grouped Dates</td>
-                    </tr>
-                    <!-- Your event rows will go here -->
-                </tbody>
-            </table>
+        <table>
+            <thead>
+                <tr>
+                    <th>Event Name</th>
+                    <th>Venue</th>
+                    <th>Address</th>
+                    <th>Link</th>
+                </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+        </table>
     </div>
-    
 
-    <!-- Script for Loading and Displaying Data -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBX9OiBSEsyLVrn86jYrYiKHrBOg7S9bCc&libraries=places&callback=initMap" async defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     <script src="script.js"></script>
-    <script async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBX9OiBSEsyLVrn86jYrYiKHrBOg7S9bCc&loading=async&libraries=places&callback=initMap">
-</script>
-
 </body>
 </html>

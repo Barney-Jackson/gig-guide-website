@@ -95,6 +95,14 @@ select, input, button {
 }
 
 
+
+.pac-container {
+    width: auto !important; /* Ensure it adapts to the input width */
+    min-width: 200px;       /* Matches the input's min-width */
+    max-width: 500px;       /* Matches the input's max-width */
+}
+
+
 #tabs {
     display: flex;
     justify-content: center;
