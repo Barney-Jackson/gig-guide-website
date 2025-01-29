@@ -190,7 +190,19 @@ table tbody tr.subheading-row td {
     border-collapse: collapse;
 }
 
+.event_link {
+    color: white;
+    text-decoration: none;
+}
+.event_link:hover {
+    color: blue;
+    text-decoration: underLine;
+}
 
+.event_link:visited {
+    color: purple;
+    text-decoration: none;
+}
 
 /* Media Queries for Smaller Screens */
 @media (max-width: 768px) {

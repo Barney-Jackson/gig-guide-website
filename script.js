@@ -55,6 +55,18 @@ function loadEventData() {
     });
 }
 
+// Function to extract street address and suburb
+function extractStreetAndSuburb(address) {
+    if (!address) return ""; // Handle undefined or empty address gracefully
+
+    address = address.trim(); // Remove leading/trailing spaces
+
+    // Match address format, capturing everything before 'VIC' (with or without a comma)
+    const match = address.match(/^(.+?)\s*,?\s*VIC\b/i);
+
+    return match ? match[1] : address; // Return only street & suburb
+}
+
 // Function to populate the table with grouped event data
 function populateTable(data) {
     //const tableBody = document.querySelector("table tbody");
@@ -78,6 +90,7 @@ function populateTable(data) {
 
             const subheadingRow = document.createElement("tr");
             subheadingRow.classList.add('subheading-row');
+            // TODO move this into the CSS file
             subheadingRow.innerHTML = `
                 <td colspan="5" style="text-align: left; font-weight: bold; background-color: #222;">
                     ${currentDate}
@@ -88,10 +101,9 @@ function populateTable(data) {
 
         const row = document.createElement("tr");
         row.innerHTML = `
-            <td>${event.Event_Title}</td>
+            <td><a href="${event.url}" class="event_link" target="_blank">${event.Event_Title}</a></td>
             <td>${event.Venue}</td>
-            <td>${event.Address}</td>
-            <td><a href="${event.url}" target="_blank">Link</a></td>
+            <td>${extractStreetAndSuburb(event.Address)}</td>
         `;
         tableBody.appendChild(row);
     });
