@@ -67,6 +67,14 @@ function extractStreetAndSuburb(address) {
     return match ? match[1] : address; // Return only street & suburb
 }
 
+// Function to format address as a Google Maps link
+function getGoogleMapsLink(address) {
+    if (!address) return "#"; // Fallback in case the address is missing
+
+    const encodedAddress = encodeURIComponent(address); // Encode address for URL
+    return `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
+}
+
 // Function to populate the table with grouped event data
 function populateTable(data) {
     //const tableBody = document.querySelector("table tbody");
@@ -98,12 +106,14 @@ function populateTable(data) {
             `;
             tableBody.appendChild(subheadingRow);
         }
+        const processedAddress = extractStreetAndSuburb(event.Address);
+        const googleMapsLink = getGoogleMapsLink(processedAddress);
 
         const row = document.createElement("tr");
         row.innerHTML = `
             <td><a href="${event.url}" class="event_link" target="_blank">${event.Event_Title}</a></td>
             <td>${event.Venue}</td>
-            <td>${extractStreetAndSuburb(event.Address)}</td>
+            <td><a href="${googleMapsLink}" class="maps_link" target="_blank">${processedAddress}</a></td>
         `;
         tableBody.appendChild(row);
     });

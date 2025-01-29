@@ -204,6 +204,11 @@ table tbody tr.subheading-row td {
     text-decoration: none;
 }
 
+.maps_link {
+    color: white;
+    text-decoration: none;
+}
+
 /* Media Queries for Smaller Screens */
 @media (max-width: 768px) {
     .filter-group {
