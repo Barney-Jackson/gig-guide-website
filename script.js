@@ -87,6 +87,7 @@ function populateTable(data) {
     if (data.length === 0) {
         noResultsMessage.style.display = 'block'; // Show the no results message
     } else {
+        noResultsMessage.style.display = 'none'; // Show the no results message
 
         data.forEach(event => {
             const eventDate = new Date(event.Date); // Parse yyyy/mm/dd directly
