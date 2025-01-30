@@ -72,7 +72,7 @@ h2 {
     background-color: #92a6bb; /* Slightly darker blue on hover */
 }
 
-.search-button button {
+.filter-button button {
     flex: 0;
     padding: 0.5rem 1rem; /* Adjusts button size for easier tapping */
     width: 50%; /* Ensure full width for smaller screens if needed */
@@ -80,7 +80,7 @@ h2 {
     border-radius: 5px; /* Rounded corners for uniformity */
 
 }
-.search-button button:hover {
+.filter-button button:hover {
     flex: 0;
     padding: 0.5rem 1rem; /* Adjusts button size for easier tapping */
     width: 50%; /* Ensure full width for smaller screens if needed */
@@ -207,6 +207,12 @@ table tbody tr.subheading-row td {
 .maps_link {
     color: white;
     text-decoration: none;
+}
+
+.text-search {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    /* TODO fix the width */
 }
 
 /* Media Queries for Smaller Screens */

@@ -77,46 +77,51 @@ function getGoogleMapsLink(address) {
 
 // Function to populate the table with grouped event data
 function populateTable(data) {
-    //const tableBody = document.querySelector("table tbody");
-    //const tableBody = document.getElementById("table");
+
     const tableBody = document.getElementById("table-body");
 
     tableBody.innerHTML = "";
 
     let currentDate = "";
+    // Check if there are no events after filtering
+    if (data.length === 0) {
+        noResultsMessage.style.display = 'block'; // Show the no results message
+    } else {
 
-    data.forEach(event => {
-        const eventDate = new Date(event.Date); // Parse yyyy/mm/dd directly
-        const formattedDate = eventDate.toLocaleDateString("en-GB", {
-            weekday: "long",
-            day: "2-digit",
-            month: "2-digit",
-        });
+        data.forEach(event => {
+            const eventDate = new Date(event.Date); // Parse yyyy/mm/dd directly
+            const formattedDate = eventDate.toLocaleDateString("en-GB", {
+                weekday: "long",
+                day: "2-digit",
+                month: "2-digit",
+            });
 
-        if (formattedDate !== currentDate) {
-            currentDate = formattedDate;
+            if (formattedDate !== currentDate) {
+                currentDate = formattedDate;
 
-            const subheadingRow = document.createElement("tr");
-            subheadingRow.classList.add('subheading-row');
-            // TODO move this into the CSS file
-            subheadingRow.innerHTML = `
-                <td colspan="5" style="text-align: left; font-weight: bold; background-color: #222;">
-                    ${currentDate}
-                </td>
+                const subheadingRow = document.createElement("tr");
+                subheadingRow.classList.add('subheading-row');
+                // TODO move this into the CSS file
+                subheadingRow.innerHTML = `
+                    <td colspan="5" style="text-align: left; font-weight: bold; background-color: #222;">
+                        ${currentDate}
+                    </td>
+                `;
+                tableBody.appendChild(subheadingRow);
+            }
+            const processedAddress = extractStreetAndSuburb(event.Address);
+            const googleMapsLink = getGoogleMapsLink(processedAddress);
+
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td><a href="${event.url}" class="event_link" target="_blank">${event.Event_Title}</a></td>
+                <td>${event.Venue}</td>
+                <td><a href="${googleMapsLink}" class="maps_link" target="_blank">${processedAddress}</a></td>
             `;
-            tableBody.appendChild(subheadingRow);
-        }
-        const processedAddress = extractStreetAndSuburb(event.Address);
-        const googleMapsLink = getGoogleMapsLink(processedAddress);
-
-        const row = document.createElement("tr");
-        row.innerHTML = `
-            <td><a href="${event.url}" class="event_link" target="_blank">${event.Event_Title}</a></td>
-            <td>${event.Venue}</td>
-            <td><a href="${googleMapsLink}" class="maps_link" target="_blank">${processedAddress}</a></td>
-        `;
-        tableBody.appendChild(row);
-    });
+            tableBody.appendChild(row);
+        });
+}
+    
 }
 
 // Populate the map with markers and custom OverlayView for InfoWindow
@@ -229,42 +234,61 @@ function populateMap(data) {
     });
 }
 
+// Function to filter events by search text
+function applyTextSearch(data, searchText) {
+    if (!searchText.trim()) {
+        return data; // Return all events if no search text is entered
+    }
 
+    const searchTextLower = searchText.toLowerCase();
+    return data.filter(event => {
+        const eventTitle = event.Event_Title ? event.Event_Title.toLowerCase() : '';
+        const venue = event.Venue ? event.Venue.toLowerCase() : '';
+        const address = event.Address ? event.Address.toLowerCase() : '';
 
+        return eventTitle.includes(searchTextLower) || venue.includes(searchTextLower) || address.includes(searchTextLower);
+    });
+}
 // Search button pressed
 function searchButtonPressed() {
-
     const startDate = document.getElementById("startDate").value;
     const endDate = document.getElementById("endDate").value;
     const inputAddress = document.getElementById("address").value;
     const radius = parseFloat(document.getElementById("radius").value);
-
+    const searchText = document.getElementById("searchText").value; // Get the search text
 
     // If both date range and radius filtering are needed
     if ((startDate || endDate) && (inputAddress || !isNaN(radius))) {
         geocodeAddress(inputAddress, (userLat, userLon) => {
             let filteredData = applyDateRangeFilter(eventsData, startDate, endDate);
             filteredData = applyRadiusFilter(filteredData, userLat, userLon, radius);
+            filteredData = applyTextSearch(filteredData, searchText); // Apply text search filter
             populateTable(filteredData);
             populateMap(filteredData);
         });
     } else if (startDate || endDate) {
         // Only date range filtering
-        const filteredData = applyDateRangeFilter(eventsData, startDate, endDate);
+        let filteredData = applyDateRangeFilter(eventsData, startDate, endDate);
+        filteredData = applyTextSearch(filteredData, searchText); // Apply text search filter
         populateTable(filteredData);
         populateMap(filteredData);
 
     } else if (inputAddress || !isNaN(radius)) {
         // Only radius filtering
         geocodeAddress(inputAddress, (userLat, userLon) => {
-            const filteredData = applyRadiusFilter(eventsData, userLat, userLon, radius);
+            let filteredData = applyRadiusFilter(eventsData, userLat, userLon, radius);
+            filteredData = applyTextSearch(filteredData, searchText); // Apply text search filter
             populateTable(filteredData);
             populateMap(filteredData);
         });
     } else {
-        alert("Please enter valid search criteria.");
+        // If no valid criteria, apply text search to all events
+        const filteredData = applyTextSearch(eventsData, searchText); 
+        populateTable(filteredData);
+        populateMap(filteredData);
     }
 }
+
 
 // Updated Function to Filter Events by Radius
 function applyRadiusFilter(data, userLat, userLon, radius) {
